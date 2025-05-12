@@ -1,7 +1,12 @@
 import { IncomingMessage, ServerResponse } from 'node:http';
+import { UserController } from '../controllers/user.controller.js';
 
 export class Router {
-  constructor() {}
+  private userController: UserController;
+
+  constructor() {
+    this.userController = new UserController();
+  }
 
   async handleRequest(req: IncomingMessage, res: ServerResponse): Promise<void> {
     const url = req.url || '';
@@ -37,16 +42,22 @@ export class Router {
     }
   }
 
-  // Todo: implement handlers for routes
   private async handleUserRoutes(
     req: IncomingMessage,
     res: ServerResponse,
-    // url: string,
+    url: string,
   ): Promise<void> {
     const method = req.method || '';
+    const urlParts = url.split('/');
+    const userId = urlParts[3];
 
     switch (method) {
       case 'GET':
+        if (userId) {
+          await this.userController.getUserById(req, res, userId);
+        } else {
+          await this.userController.getAllUsers(req, res);
+        }
         break;
 
       case 'POST':
