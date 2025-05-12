@@ -61,6 +61,12 @@ export class Router {
         break;
 
       case 'POST':
+        if (!userId) {
+          await this.userController.createUser(req, res);
+        } else {
+          res.writeHead(404, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ message: 'Resource not found' }));
+        }
         break;
 
       case 'PUT':
