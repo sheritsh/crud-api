@@ -70,6 +70,12 @@ export class Router {
         break;
 
       case 'PUT':
+        if (userId) {
+          await this.userController.updateUser(req, res, userId);
+        } else {
+          res.writeHead(404, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ message: 'Resource not found' }));
+        }
         break;
 
       case 'DELETE':
