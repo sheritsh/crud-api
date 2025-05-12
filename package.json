@@ -13,6 +13,20 @@
     "lint:fix": "eslint . --ext .ts --fix",
     "prepare": "husky"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sheritsh/crud-api.git"
+  },
+  "keywords": [
+    "crud",
+    "api",
+    "typescript",
+    "nodejs",
+    "rsschool"
+  ],
+  "author": "Oleg Polovinko",
+  "license": "ISC",
+  "homepage": "https://github.com/sheritsh/crud-api#readme",
   "dependencies": {
     "cross-env": "^7.0.3",
     "dotenv": "^16.5.0",
