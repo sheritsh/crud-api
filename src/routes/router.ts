@@ -79,6 +79,12 @@ export class Router {
         break;
 
       case 'DELETE':
+        if (userId) {
+          await this.userController.deleteUser(req, res, userId);
+        } else {
+          res.writeHead(404, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ message: 'Resource not found' }));
+        }
         break;
 
       default:
