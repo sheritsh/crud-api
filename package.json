@@ -8,6 +8,7 @@
     "build": "tsc",
     "start:dev": "cross-env NODE_ENV=development node --no-warnings --loader ts-node/esm src/index.ts",
     "start:prod": "npm run build && cross-env NODE_ENV=production node dist/index.js",
+    "start:multi": "cross-env NODE_ENV=production node --no-warnings --loader ts-node/esm src/cluster.ts",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
