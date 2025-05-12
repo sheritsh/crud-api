@@ -1,4 +1,14 @@
 {
+  "name": "crud-api",
+  "version": "1.0.0",
+  "description": "Simple CRUD API with in-memory database",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix"
+  },
   "dependencies": {
     "cross-env": "^7.0.3",
     "dotenv": "^16.5.0",
